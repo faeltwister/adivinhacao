@@ -1,14 +1,15 @@
 import readline from 'readline-sync'
 import chalk from 'chalk'
 
-let maxNumber;
+let numeroMax;
 let level;
+let tentativa = 0
+let numberParaAcertar;
 
 function wellcome(){
     console.log(chalk.bgBlueBright.bgBlack("Bem-vindo ao jogo de advinhação"));
     console.log("------------------------------");
 }
-
 
 function Tela(){
 
@@ -41,35 +42,59 @@ function VerificarInt(){
     
 }
 
+function Tentativa() {
+    while(true){
+        tentativa++
+        const usuarioTentativa = parseInt(readline.question("Chute um numero: "));
+        if(usuarioTentativa === numberParaAcertar ){
+            console.log(chalk.green("Parabéns, Você acertou!"));
+            console.log(`Você usuou ${tentativa} tentativas.`);
+            break;
+        }else if(usuarioTentativa < numberParaAcertar){
+            console.log(chalk.bgRed.white("O seu palpite foi baixo"));
+        }else{
+            console.log(chalk.bgBlue.white("O seu palpite foi muito alto"));    
+        }
+    }
+}
+
+function Game(){
+    switch (level) {
+    
+        case 1:
+            
+            numeroMax = 10;
+            numberParaAcertar = Math.floor(Math.random()* numeroMax) + 1;
+            console.log("Você escolheu o nível fácil!");
+            Tentativa();
+            break;
+    
+        case 2:
+            numeroMax = 50;
+            numberParaAcertar = Math.floor(Math.random()* numeroMax) + 1;
+            console.log("Você escolheu o nível médio");
+            Tentativa();
+            break;
+    
+        case 3:
+            numeroMax = 100;
+            numberParaAcertar = Math.floor(Math.random()* numeroMax) + 1;
+            console.log("Você escolheu o nível difícil!");
+            Tentativa();
+            break;
+    
+        
+    }
+}
 
 wellcome();
 Tela();
 VerificarNivel();
 VerificarInt();
+Game();
 
 
 
-
-
-switch (level) {
-    case 1:
-        maxNumber = 10;
-        console.log("Você escolheu o nível fácil!");
-        break;
-
-    case 2:
-        maxNumber = 50;
-        console.log("Você escolheu o nível médio");
-        break;
-
-    case 3:
-        maxNumber = 100;
-        console.log("Você escolheu o nível difícil!");
-        break;
-
-    
-}
-    
 
 
 
