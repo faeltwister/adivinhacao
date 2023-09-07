@@ -36,3 +36,5 @@ Segue abaixo para instalação:
 3. Rode o programa:
    ```bash
    node index.js
+## Licença
+O código está aberto para modificações e melhorias.
