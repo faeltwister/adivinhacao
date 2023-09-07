@@ -1,0 +1,15 @@
+{
+  "name": "adivinhacao",
+  "version": "1.0.0",
+  "description": "Jogo de adivinhação em node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rafael",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "readline-sync": "^1.4.10"
+  }
+}
